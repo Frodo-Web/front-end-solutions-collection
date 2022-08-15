@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
+        body {
+            font-family: "Slabo 27px", serif;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        [data-flex] {
+            display: flex;
+            width: 80%;
+            max-width: 800px;
+            font-size: 1.2rem;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        [data-flex]>img {
+            margin-right: 2rem;
+            width: 30%;
+        }
+
+        [data-center] {
+            align-items: center;
+        }
+
+        [data-flex] div,
+        [data-flex] p {
+            flex: 1;
+        }
+
+        [data-flex] div {
+            margin-right: 2rem;
+        }
+
+        [data-flex] div img {
+            width: 100%;
+        }
+    </style>
+    <!-- <base href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/"> -->
+    <h2>By default, images that are flex-children will be their <em>natural</em> height, regardless of their width:</h2>
+    <div data-flex>
+        <img src="./Paris.jpg"
+            alt>
+        <p>One night towards eleven o’clock they were awakened by the noise of a horse pulling up outside their door.
+            The servant opened the garret-window and parleyed for some time with a man in the street below. He came for
+            the doctor, had a letter for him. Natasie came downstairs shivering and undid the bars and bolts one after
+            the other. The man left his horse, and, following the servant, suddenly came in behind her. He pulled out
+            from his wool cap with grey top-knots a letter wrapped up in a rag and presented it gingerly to Charles, who
+            rested on his elbow on the pillow to read it. Natasie, standing near the bed, held the light. Madame in
+            modesty had turned to the wall and showed only her back.</p>
+    </div>
+    <h2>This can be avoided by <em>not</em> specifying a width for the image, but that makes it non-responsive:</h2>
+    <div data-flex>
+        <img src="./Paris.jpg"
+            alt style="width: auto">
+        <p>This letter, sealed with a small seal in blue wax, begged Monsieur Bovary to come immediately to the farm of
+            the Bertaux to set a broken leg. Now from Tostes to the Bertaux was a good eighteen miles across country by
+            way of Longueville and Saint-Victor. It was a dark night; Madame Bovary junior was afraid of accidents for
+            her husband. So it was decided the stable-boy should go on first; Charles would start three hours later when
+            the moon rose. A boy was to be sent to meet him, and show him the way to the farm, and open the gates for
+            him.</p>
+    </div>
+    <h2>Solution 1: apply <code>align-self: center</code> to the image</h2>
+    <div data-flex>
+        <img src="./Paris.jpg"
+            alt style="align-self: center;">
+        <p>Towards four o’clock in the morning, Charles, well wrapped up in his cloak, set out for the Bertaux. Still
+            sleepy from the warmth of his bed, he let himself be lulled by the quiet trot of his horse. When it stopped
+            of its own accord in front of those holes surrounded with thorns that are dug on the margin of furrows,
+            Charles awoke with a start, suddenly remembered the broken leg, and tried to call to mind all the fractures
+            he knew. The rain had stopped, day was breaking, and on the branches of the leafless trees birds roosted
+            motionless, their little feathers bristling in the cold morning wind. The flat country stretched as far as
+            eye could see, and the tufts of trees round the farms at long intervals seemed like dark violet stains on
+            the cast grey surface, that on the horizon faded into the gloom of the sky.</p>
+    </div>
+
+    <h2>Solution 2: apply <code>align-items: center</code> to the flex container</h2>
+    <div data-flex data-center>
+        <img src="./Paris.jpg"
+            alt>
+        <p>Charles from time to time opened his eyes, his mind grew weary, and, sleep coming upon him, he soon fell into
+            a doze wherein, his recent sensations blending with memories, he became conscious of a double self, at once
+            student and married man, lying in his bed as but now, and crossing the operation theatre as of old. The warm
+            smell of poultices mingled in his brain with the fresh odour of dew; he heard the iron rings rattling along
+            the curtain-rods of the bed and saw his wife sleeping. As he passed Vassonville he came upon a boy sitting
+            on the grass at the edge of a ditch.</p>
+    </div>
+
+    <h2>Solution 3: Place the image inside another container, and make <em>that</em> the flex-child</h2>
+
+    <div data-flex data-center>
+        <div>
+            <img src="./Paris.jpg"
+                alt>
+        </div>
+        <p>It was a substantial-looking farm. In the stables, over the top of the open doors, one could see great
+            cart-horses quietly feeding from new racks. Right along the outbuildings extended a large dunghill, from
+            which manure liquid oozed, while amidst fowls and turkeys, five or six peacocks, a luxury in Chauchois
+            farmyards, were foraging on the top of it. The sheepfold was long, the barn high, with walls smooth as your
+            hand. Under the cart-shed were two large carts and four ploughs, with their whips, shafts and harnesses
+            complete, whose fleeces of blue wool were getting soiled by the fine dust that fell from the granaries. The
+            courtyard sloped upwards, planted with trees set out symmetrically, and the chattering noise of a flock of
+            geese was heard near the pond.</p>
+    </div>
+</body>
+
+</html>
