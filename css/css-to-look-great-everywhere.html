@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        html {
+            font-family: sans-serif;
+            font-size: 1.5em;
+            line-height: 1.75;
+            margin: auto;
+            max-width: 70ch;
+            padding: 3em 1em;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        /* Optional 100 more bytes */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 3em 0 1em;
+        }
+
+        p,
+        ul,
+        ol {
+            color: #1d1d1d;
+            margin-bottom: 2em;
+        }
+    </style>
+    <p>When making this website, I wanted a simple, reasonable way to make it look good on most displays. Not counting
+        any minimization techniques, the following 58 bytes worked well for me:</p>
+
+    <pre>
+      html {
+        max-width: 38rem;
+        padding: 2rem;
+        margin: auto;
+      }
+      </pre>
+
+    <p>let's break this down:</p>
+
+    <blockquote>
+        <b>max-width: <code>38rem</code></b><br>
+        it appears that the default font size for most browsers is <code>16px</code>, so <code>38rem</code> is
+        <code>608px</code>. supporting <code>600px</code> displays at a minimum seems reasonable.
+    </blockquote>
+
+    <blockquote>
+        <b>padding: <code>2rem</code></b><br>
+        if the display's width goes under <code>38rem</code>, then this padding keeps things looking pretty good until
+        around <code>256px</code>. while this may seem optional, it actually hits two birds with one stone - the padding
+        also provides sorely-needed top and bottom whitespace.
+    </blockquote>
+
+    <blockquote>
+        <b>margin: <code>auto</code></b><br>
+        this is really all that is needed to center the page, because main is a block element under semantic html5.
+    </blockquote>
+
+    <blockquote>
+        <b>a key insight:</b> it took me a surprising number of iterations to arrive at this point. perhaps that speaks
+        to the fact that i know nothing about "modern" web development, or, as i'm more inclined to believe, just how
+        hard it is to keep it simple in a world of complication
+    </blockquote>
+
+    <blockquote>
+        <b>update 1:</b> following some discussion, I've since changed the padding to <code>1.5rem</code> for a happier
+        compromise between mobile and desktop displays.
+    </blockquote>
+
+    <blockquote>
+        <b>update 2:</b> the ch unit was brought to my attention, and I quite like it! I've since changed to
+        <code>70ch/2ch</code>, which looks nearly the same with 2 less bytes, except that the padding is a little bit
+        smaller (a good thing for mobile).
+
+    </blockquote>
+
+    <h2>100 Bytes of CSS to Look Great Everywhere (enhanced version)</h2>
+
+    <pre>
+      html {
+        max-width: 70ch;
+        padding: 3em 1em;
+        margin: auto;
+        line-height: 1.75;
+        font-size: 1.25em;
+      }
+      </pre>
+
+    <p>This should be simple drop-in css to look good on most displays.</p>
+
+    <p>Let's break this down. I've adapted the original text with my own commentary.</p>
+
+    <blockquote>
+        <b>max-width:</b> <code>70ch</code><br>
+        the "readable range" is usually 60-80 character widths, and CSS lets you express that directly with the
+        <code>ch</code> unit.
+    </blockquote>
+
+    <blockquote>
+        <b>padding:</b> <code>3em 1em</code><br>
+        If the display's width goes under the max-width set above, then this padding prevents edge-to-edge text on
+        mobile. We use <code>3em</code> to provide top/bottom whitespace.
+    </blockquote>
+
+    <blockquote>
+        <b>margin:</b> <code>auto</code><br>
+        This is really all that is needed to center the page - applied on html, because Dan's site doesnt have a
+        semantic tag and is more likely to exist in most sites. That the top tag centers itself relative to nothing is
+        unintuitive, but thats how browsers do.
+    </blockquote>
+
+    <blockquote>
+        <b>line-height:</b> <code>1.75</code><br>
+        Spacing between the lines to help increase visual clarity. Always leave line height unitless because reasons.
+    </blockquote>
+
+    <blockquote>
+        <b>font-size:</b> <code>1.5em</code><br>
+        I've noticed that recent design trends and screen sizes have tended toward bigger font sizes. Or maybe I'm
+        getting old. Prefer <code>em</code> or <code>rem</code> over px if you want to let users scale it.
+    </blockquote>
+
+    <blockquote>
+        You can use <code>:root</code> instead of <code>html</code> to guarantee that there is some selector present,
+        but its a touch too fancy for me and uses an extra character :)
+    </blockquote>
+
+    <h2>Optional 100 More Bytes</h2>
+
+    <pre>
+      h1,h2,h3,h4,h5,h6 {
+        margin: 3em 0 1em;
+      }
+      
+      p,ul,ol {
+        color: #1d1d1d;
+        margin-bottom: 2em;
+      }
+      </pre>
+
+    <h2>Reference</h2>
+    <ul>
+        <li><a href="https://github.com/">58 Bytes of CSS to Look
+                Great Nearly Everywhere</a>
+        </li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS Reference on MDN</a></li>
+    </ul>
+</body>
+
+</html>
